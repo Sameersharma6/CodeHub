@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | CodeHub</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #fff;
+            background: #ff9800;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        header a:hover {
+            background: #ffc107;
+        }
+
+        h2 {
+            margin-top: 40px;
+            font-size: 2.2rem;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        th, td {
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>CodeHub Leaderboard</h1>
+    <a href="/home">🏠 Home</a>
+</header>
+
+<h2>Top Coders</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Dynamic data from Model -->
+    <tr th:each="user, iterStat : ${users}">
+        <td th:text="${iterStat.index + 1}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.level}"></td>
+        <td th:text="${user.score}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>© 2025 CodeHub | Built with ❤️ by Team CodeHub</footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeHub | Home</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            background: #ff9800;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #ffc107;
+        }
+
+        .container {
+            margin-top: 60px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            width: 50%;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to CodeHub</h1>
+    <a href="/leaderboard">🏆 Leaderboard</a>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2 th:text="'Welcome, ' + ${user.username} + '!'"></h2>
+        <p th:text="'Level: ' + ${user.level}"></p>
+        <p th:text="'Score: ' + ${user.score}"></p>
+    </div>
+</div>
+</body>
+</html>
